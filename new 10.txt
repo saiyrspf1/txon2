@@ -1,0 +1,30 @@
+PS C:\Users\saket> docker run -it --name civil ubuntu /bin/bash
+root@42440da9fc4c:/# cd tmp
+root@42440da9fc4c:/tmp# ls
+root@42440da9fc4c:/tmp# cd ls
+bash: cd: ls: No such file or directory
+root@42440da9fc4c:/tmp# cd container civil
+bash: cd: too many arguments
+root@42440da9fc4c:/tmp# docker container civil
+bash: docker: command not found
+root@42440da9fc4c:/tmp# docker container cse
+bash: docker: command not found
+root@42440da9fc4c:/tmp# ls
+root@42440da9fc4c:/tmp# docker container ls
+bash: docker: command not found
+root@42440da9fc4c:/tmp# exit
+exit
+PS C:\Users\saket> docker container ls
+CONTAINER ID   IMAGE     COMMAND       CREATED          STATUS          PORTS     NAMES
+953a765e8008   ubuntu    "/bin/bash"   15 minutes ago   Up 15 minutes             eee
+80e2f242efdc   ubuntu    "/bin/bash"   29 minutes ago   Up 8 minutes              cse
+PS C:\Users\saket> docker stop $(docker ps -aq)
+42440da9fc4c
+953a765e8008
+80e2f242efdc
+b7c0c8607f14
+PS C:\Users\saket> docker start eee
+eee
+PS C:\Users\saket> docker start 953a765e8008
+953a765e8008
+PS C:\Users\saket>
